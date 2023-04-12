@@ -2247,14 +2247,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yarn-lock-to-package-json@npm:^0.1.8":
-  version: 0.1.8
-  resolution: "yarn-lock-to-package-json@npm:0.1.8"
+"yarn-lock-to-package-json@npm:^0.1.9":
+  version: 0.1.9
+  resolution: "yarn-lock-to-package-json@npm:0.1.9"
   dependencies:
     "@yarnpkg/parsers": ^3.0.0-rc.32
   bin:
     yarn-lock-to-package-json: cli.js
-  checksum: 74b2ca165652daab81dc65efd8cc0deddb8b5d54618ce03c85fcdc1482a7b209e666f19526a7c9fbdda9a03d41981c477c1f3cba943d336485fe84f583bacd73
+  checksum: 50d580549bb4b8bb8e332b72e48c1737da81a5ccefe9f61eeaa089934de217bd291e39283508882ce780e5a7c4fee7ca35ebc75ea463001d27c62834a0e8c1fc
   languageName: node
   linkType: hard
 
@@ -2268,7 +2268,7 @@ __metadata:
     "@yarnpkg/parsers": ^3.0.0-rc.42
     clipanion: ^3.2.0-rc.10
     shell-quote: ^1.8.1
-    yarn-lock-to-package-json: ^0.1.8
+    yarn-lock-to-package-json: ^0.1.9
   languageName: unknown
   linkType: soft
 

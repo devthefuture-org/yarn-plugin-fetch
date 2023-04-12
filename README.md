@@ -1,6 +1,6 @@
 # yarn-plugin-fetch
 
-Optimised yarn workflow for docker build.
+Optimized yarn workflow for docker build.
 Don't re-download all your dependencies on each package.json change.
 
 Implementation of pnpm [fetch](https://pnpm.io/cli/fetch) for yarn berry with additional features:

@@ -65,7 +65,7 @@ yarn expand-lock
 
 ## further documentation
 
-### this plugin is based on the work of [Rohit Gohri](https://github.com/rohit-gohri) on the great package [yarn-lock-to-package-json](yarn-lock-to-package-json)
+### this plugin is based on the work of [Rohit Gohri](https://github.com/rohit-gohri) on the great package [yarn-lock-to-package-json](https://github.com/rohit-gohri/yarn-lock-to-package-json)
 - https://github.com/rohit-gohri/yarn-lock-to-package-json/
 
 ### yarn issues

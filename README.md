@@ -33,7 +33,7 @@ yarn plugin import https://raw.githubusercontent.com/devthejo/yarn-plugin-fetch/
 Dockerfile
 ```Dockerfile
 COPY yarn.lock .yarnrc.yml .yarn .
-yarn fetch
+yarn fetch --immutable
 COPY . .
 yarn postinstall # if you have postinstall script in your package.json
 yarn build # and/or other build commands

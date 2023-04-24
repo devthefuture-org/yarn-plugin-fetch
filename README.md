@@ -33,7 +33,7 @@ yarn plugin import https://raw.githubusercontent.com/devthejo/yarn-plugin-fetch/
 Dockerfile
 ```Dockerfile
 COPY yarn.lock .yarnrc.yml .
-COPY .yarn ./
+COPY .yarn .yarn
 yarn fetch --immutable
 COPY . .
 yarn postinstall # if you have postinstall script in your package.json
@@ -49,7 +49,7 @@ You can install it with `yarn plugin import workspace-tools`.
 package/mypackage/Dockerfile
 ```Dockerfile
 COPY yarn.lock .yarnrc.yml .
-COPY .yarn ./
+COPY .yarn .yarn
 RUN yarn fetch --workspace mypackage
 COPY package/mypackage .
 # COPY package/my-package-dep1 . # if you have one or many workspace dependencies

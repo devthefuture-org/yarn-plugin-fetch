@@ -34,11 +34,11 @@ Dockerfile
 ```Dockerfile
 COPY yarn.lock .yarnrc.yml .
 COPY .yarn .yarn
-yarn fetch --immutable
+RUN yarn fetch --immutable
 COPY . .
-yarn postinstall # if you have postinstall script in your package.json
-yarn build # and/or other build commands
-yarn --immutable --production
+RUN yarn postinstall # if you have postinstall script in your package.json
+RUN yarn build # and/or other build commands
+RUN yarn --immutable --production
 ```
 
 ### monorepo
@@ -53,9 +53,9 @@ COPY .yarn .yarn
 RUN yarn fetch --workspace mypackage
 COPY package/mypackage .
 # COPY package/my-package-dep1 . # if you have one or many workspace dependencies
-yarn workspaces foreach -t run postinstall # if you have postinstall scripts in your package.json file(s)
-yarn workspace mypackage build # and/or other build commands
-yarn workspace mypackage focus --production
+RUN yarn workspaces foreach -t run postinstall # if you have postinstall scripts in your package.json file(s)
+RUN yarn workspace mypackage build # and/or other build commands
+RUN yarn workspace mypackage focus --production
 ```
 
 ## extras

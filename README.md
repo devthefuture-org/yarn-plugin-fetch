@@ -73,7 +73,7 @@ And if you are really anal you can do:
 RUN yarn fetch-tools production && yarn cache clean
 ```
 
-Note: this optimization will make sense in case you make a multistage Dockerfile and copy node modules in the final stage, eg:
+Note: this optimization will make sense in case you make a multistage Dockerfile and copy node_modules in the final stage, eg:
 
 ```Dockerfile
 FROM node as build

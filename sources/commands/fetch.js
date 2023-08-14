@@ -10,7 +10,7 @@ const quote = require("shell-quote/quote");
 const expandLock = require("../lib/expand-lock");
 
 module.exports = class FetchCommand extends BaseCommand {
-  static paths = [["fetch", ["fetch-tools", "install"]]];
+  static paths = [["fetch"]];
   static usage = Command.Usage({
     description: `fetch dependencies from yarn.lock in Docker build`,
     details: `

@@ -32,13 +32,21 @@ yarn plugin import https://raw.githubusercontent.com/devthejo/yarn-plugin-fetch/
 
 Dockerfile
 ```Dockerfile
-COPY yarn.lock .yarnrc.yml .
+COPY yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
 RUN yarn fetch --immutable
 COPY . .
 RUN yarn postinstall # if you have postinstall script in your package.json
 RUN yarn build # and/or other build commands
-RUN yarn --immutable --production
+RUN yarn --immutable
+```
+
+yarn berry need [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to support `--production` (This plugin is included by default starting from Yarn 4).
+You can install it with `yarn plugin import workspace-tools`.
+Then you can replace last line of previous example by:
+
+```Dockerfile
+RUN yarn workspaces focus --production
 ```
 
 ### monorepo

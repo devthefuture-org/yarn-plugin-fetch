@@ -16,7 +16,7 @@ It work's by expanding your yarn.lock into package.json file(s) and structured w
 ### migration to yarn berry
 - run `yarn set version berry` in your repository
 - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
-- to ensure retrocompatibility, put in your `.yarnrc.yml`: `nodeLinker: pnpm` (recommended, all advantages of pnpm symlink method) or `nodeLinker: node-modules`
+- to ensure retrocompatibility, put in your `.yarnrc.yml`: `nodeLinker: pnpm` (recommended, all advantages of pnpm symlink method) or `nodeLinker: node-modules` (better compatibility)
 
 
 ## getting started
@@ -41,10 +41,19 @@ RUN yarn build # and/or other build commands
 RUN yarn --immutable
 ```
 
+#### production optimization
+
+This is specific to yarn berry, not directly related to this plugin, but this documentation attempt to be a complete migration guide from yarn classic (v1) to yarn berry (v2+).
 yarn berry need [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to support `--production` (This plugin is included by default starting from Yarn 4).
 You can install it with `yarn plugin import workspace-tools`.
-Then you can replace last line of previous example by:
+Then you can replace last line of previous example:
 
+```Dockerfile
+RUN yarn --immutable
+```
+
+by
+ 
 ```Dockerfile
 RUN yarn workspaces focus --production
 ```

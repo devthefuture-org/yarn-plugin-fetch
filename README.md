@@ -67,6 +67,12 @@ And if you have postinstall script in your package.json that needs dev dependenc
 RUN yarn fetch-tools production
 ```
 
+And if you are really anal you can do:
+
+```Dockerfile
+RUN yarn fetch-tools production && yarn cache clean
+```
+
 Note: this optimization will make sense in case you make a multistage Dockerfile and copy node modules in the final stage, eg:
 
 ```Dockerfile
@@ -111,6 +117,8 @@ RUN yarn workspace mypackage focus --production
 ### production
 
 This need [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to support `--production` (This plugin is included by default starting from Yarn 4). You can install it with `yarn plugin import workspace-tools`.
+
+This command will clean the dev dependencies (generally implemented after build):
 
 ```sh
 yarn fetch-tools production

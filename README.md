@@ -36,22 +36,26 @@ Dockerfile
 COPY yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
 RUN yarn fetch --immutable
+
 COPY . .
+
 RUN yarn postinstall # if you have postinstall script in your package.json
 RUN yarn build # and/or other build commands
-RUN yarn --immutable
 ```
 
 #### production optimization
 
 This is specific to yarn berry, not directly related to this plugin, but this documentation attempt to be a complete migration guide from yarn classic (v1) to yarn berry (v2+).
-yarn berry need [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to support `--production` (This plugin is included by default starting from Yarn 4).
-You can install it with `yarn plugin import workspace-tools`.
-Then you can replace last line of previous example:
 
-```Dockerfile
-RUN yarn --immutable
+Yarn berry need [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to support `--production` (This plugin is included by default starting from Yarn 4).
+
+You can install it with this simple command:
+
+```sh
+yarn plugin import workspace-tools
 ```
+
+Then you can add this line of previous example:
 
 by
 
@@ -65,6 +69,24 @@ And if you have postinstall script in your package.json that needs dev dependenc
 RUN yarn fetch-tools production
 ```
 
+Note: this optimization will make sense in case you make a multistage Dockerfile and copy node modules in the final stage, eg:
+
+```Dockerfile
+FROM node as build
+COPY yarn.lock .yarnrc.yml ./
+COPY .yarn .yarn
+RUN yarn fetch --immutable
+
+COPY . .
+
+RUN yarn postinstall # if you have postinstall script in your package.json
+RUN yarn build # and/or other build commands
+RUN yarn fetch-tools production
+
+FROM node as final
+COPY --from=build /app/node_modules /app/node_modules
+```
+
 ### monorepo
 
 You need the [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to be installed to implement this example (This plugin is included by default starting from Yarn 4).
@@ -76,10 +98,13 @@ package/mypackage/Dockerfile
 COPY yarn.lock .yarnrc.yml .
 COPY .yarn .yarn
 RUN yarn fetch --workspace mypackage
+
 COPY package/mypackage .
+
 # COPY package/my-package-dep1 . # if you have one or many workspace dependencies
 RUN yarn workspaces foreach -t run postinstall # if you have postinstall scripts in your package.json file(s)
 RUN yarn workspace mypackage build # and/or other build commands
+
 RUN yarn workspace mypackage focus --production
 ```
 

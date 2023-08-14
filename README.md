@@ -57,8 +57,6 @@ yarn plugin import workspace-tools
 
 Then you can add this line of previous example:
 
-by
-
 ```Dockerfile
 RUN yarn workspaces focus --production
 ```

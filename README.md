@@ -4,6 +4,7 @@ Optimized yarn workflow for docker build.
 Don't re-download all your dependencies on each package.json change.
 
 Implementation of pnpm [fetch](https://pnpm.io/cli/fetch) for yarn berry with additional features:
+
 - workspace focus support
 - custom install command
 
@@ -14,10 +15,10 @@ It work's by expanding your yarn.lock into package.json file(s) and structured w
 - yarn berry (>= 2)
 
 ### migration to yarn berry
+
 - run `yarn set version berry` in your repository
 - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 - to ensure retrocompatibility, put in your `.yarnrc.yml`: `nodeLinker: pnpm` (recommended, all advantages of pnpm symlink method) or `nodeLinker: node-modules` (better compatibility)
-
 
 ## getting started
 
@@ -27,10 +28,10 @@ yarn plugin import https://raw.githubusercontent.com/devthejo/yarn-plugin-fetch/
 
 ## Docker implementation
 
-
 ### standalone repository
 
 Dockerfile
+
 ```Dockerfile
 COPY yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
@@ -53,9 +54,15 @@ RUN yarn --immutable
 ```
 
 by
- 
+
 ```Dockerfile
 RUN yarn workspaces focus --production
+```
+
+And if you have postinstall script in your package.json that needs dev dependencies, you can replace by this command instead:
+
+```Dockerfile
+RUN yarn fetch-tools production
 ```
 
 ### monorepo
@@ -64,6 +71,7 @@ You need the [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_wor
 You can install it with `yarn plugin import workspace-tools`.
 
 package/mypackage/Dockerfile
+
 ```Dockerfile
 COPY yarn.lock .yarnrc.yml .
 COPY .yarn .yarn
@@ -75,19 +83,56 @@ RUN yarn workspace mypackage build # and/or other build commands
 RUN yarn workspace mypackage focus --production
 ```
 
-## extras
+## extra commands (fetch-tools)
+
+### production
+
+This need [workspace-tools plugin](https://yarnpkg.com/api/modules/plugin_workspace_tools.html) to support `--production` (This plugin is included by default starting from Yarn 4). You can install it with `yarn plugin import workspace-tools`.
+
+```sh
+yarn fetch-tools production
+```
+
+it's equivalent to
+
+```sh
+yarn fetch-tools disable-postinstall
+yarn workspaces focus --production
+yarn fetch-tools enable-postinstall
+```
+
+all extra arguments are transmitted as argument to `yarn workspaces focus --production` command.
+
+### expand-lock
 
 If you don't want to install dependencies but want to expand the yarn.lock to package.json only, you can run:
+
 ```sh
-yarn expand-lock
+yarn fetch-tools expand-lock
+```
+
+### postinstall
+
+this is renaming the scripts postinstall key in package.json to \_postinstall
+
+```sh
+yarn fetch-tools disable-postinstall
+```
+
+and this revert it
+
+```sh
+yarn fetch-tools enable-postinstall
 ```
 
 ## further documentation
 
 ### this plugin is based on the work of [Rohit Gohri](https://github.com/rohit-gohri) on the great package [yarn-lock-to-package-json](https://github.com/rohit-gohri/yarn-lock-to-package-json)
+
 - https://github.com/rohit-gohri/yarn-lock-to-package-json/
 
 ### yarn issues
+
 - [Install without package.json](https://github.com/yarnpkg/yarn/issues/4813)
 - [Fetch dependencies from yarn.lock only](https://github.com/yarnpkg/berry/issues/4529)
 - [A command to just download and cache dependencies from lockfile](https://github.com/yarnpkg/berry/discussions/4380)

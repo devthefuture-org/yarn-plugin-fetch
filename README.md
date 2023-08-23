@@ -67,7 +67,7 @@ And if you have postinstall script in your package.json that needs dev dependenc
 RUN yarn fetch-tools production
 ```
 
-And if you are really anal you can do:
+And to get a lighter layer you can do:
 
 ```Dockerfile
 RUN yarn fetch-tools production && yarn cache clean

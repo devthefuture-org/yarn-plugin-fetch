@@ -99,9 +99,9 @@ You can install it with `yarn plugin import workspace-tools`.
 package/mypackage/Dockerfile
 
 ```Dockerfile
-COPY yarn.lock .yarnrc.yml .
+COPY yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
-RUN yarn fetch --workspace mypackage
+RUN yarn fetch workspaces focus mypackage
 
 COPY package/mypackage .
 

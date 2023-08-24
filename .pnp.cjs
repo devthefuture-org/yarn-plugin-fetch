@@ -34,7 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/parsers", "npm:3.0.0-rc.42"],\
             ["clipanion", "virtual:ba24742e5bfaec41d1d0434e6865c2744ffb69a716f18fa84bd7d44084043647838926c96a391f66b9946857565b9825479e97ad07079ef40683084ce389d203#npm:3.2.0"],\
             ["shell-quote", "npm:1.8.1"],\
-            ["yarn-lock-to-package-json", "npm:0.1.10"]\
+            ["yarn-lock-to-package-json", "npm:0.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2992,10 +2992,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["yarn-lock-to-package-json", [\
-        ["npm:0.1.10", {\
-          "packageLocation": "./.yarn/cache/yarn-lock-to-package-json-npm-0.1.10-fbf937bddf-b1d1adcf7c.zip/node_modules/yarn-lock-to-package-json/",\
+        ["npm:0.2.0", {\
+          "packageLocation": "./.yarn/cache/yarn-lock-to-package-json-npm-0.2.0-693f784191-a65f6c48ca.zip/node_modules/yarn-lock-to-package-json/",\
           "packageDependencies": [\
-            ["yarn-lock-to-package-json", "npm:0.1.10"],\
+            ["yarn-lock-to-package-json", "npm:0.2.0"],\
             ["@yarnpkg/parsers", "npm:3.0.0-rc.42"]\
           ],\
           "linkType": "HARD"\
@@ -3012,7 +3012,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/parsers", "npm:3.0.0-rc.42"],\
             ["clipanion", "virtual:ba24742e5bfaec41d1d0434e6865c2744ffb69a716f18fa84bd7d44084043647838926c96a391f66b9946857565b9825479e97ad07079ef40683084ce389d203#npm:3.2.0"],\
             ["shell-quote", "npm:1.8.1"],\
-            ["yarn-lock-to-package-json", "npm:0.1.10"]\
+            ["yarn-lock-to-package-json", "npm:0.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\

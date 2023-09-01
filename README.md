@@ -18,6 +18,16 @@ It work's by expanding your yarn.lock into package.json file(s) and structured w
 
 - run `yarn set version berry` in your repository
 - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+  .gitignore (without [zero install](#yarn-zero-install)
+  ```.gitignore
+  .pnp.*
+  .yarn/*
+  !.yarn/patches
+  !.yarn/plugins
+  !.yarn/releases
+  !.yarn/sdks
+  !.yarn/versions
+  ```
 - to ensure retrocompatibility, put in your `.yarnrc.yml`: `nodeLinker: pnpm` (recommended, all advantages of pnpm symlink method) or `nodeLinker: node-modules` (better compatibility)
 
 ## getting started
@@ -154,6 +164,28 @@ and this revert it
 
 ```sh
 yarn fetch-tools enable-postinstall
+```
+
+## yarn zero-install
+
+If you opt yarn zero install, you don't need this plugin, but you still need workspace-tools plugin for optimization. Here is an example of an optimized Dockerfile for this case:
+
+```Dockerfile
+FROM node:20-alpine AS node
+
+RUN mkdir /app && chown 1000:1000 /app
+USER 1000
+WORKDIR /app
+ENTRYPOINT [ "node", "index.js" ]
+
+FROM node AS build
+COPY --chown=1000:1000 . .
+RUN yarn
+RUN yarn buil
+RUN yarn workspaces focus --production && yarn cache clean
+
+FROM node
+COPY --from=build /app /app
 ```
 
 ## further documentation

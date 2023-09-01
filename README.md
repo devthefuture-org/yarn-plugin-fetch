@@ -169,7 +169,7 @@ yarn fetch-tools enable-postinstall
 
 ## yarn zero-install
 
-If you opt yarn zero install, you don't need this plugin, but you still need workspace-tools plugin for optimization. Here is an example of an optimized Dockerfile for this case:
+If you opt for yarn zero install, you probably don't need this plugin, but you still need workspace-tools plugin for optimization. Here is an example of an optimized Dockerfile for this case:
 
 ```Dockerfile
 FROM node:20-alpine AS node

@@ -17,8 +17,7 @@ It work's by expanding your yarn.lock into package.json file(s) and structured w
 ### migration to yarn berry
 
 - run `yarn set version berry` in your repository
-- https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
-  .gitignore (without [zero install](#yarn-zero-install)
+- .gitignore (without [zero install](#yarn-zero-install))
   ```.gitignore
   .pnp.*
   .yarn/*
@@ -28,6 +27,8 @@ It work's by expanding your yarn.lock into package.json file(s) and structured w
   !.yarn/sdks
   !.yarn/versions
   ```
+  
+  https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 - to ensure retrocompatibility, put in your `.yarnrc.yml`: `nodeLinker: pnpm` (recommended, all advantages of pnpm symlink method) or `nodeLinker: node-modules` (better compatibility)
 
 ## getting started

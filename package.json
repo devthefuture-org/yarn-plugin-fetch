@@ -1,7 +1,7 @@
 {
   "name": "yarn-plugin-fetch",
-  "repository": "https://github.com/devthejo/yarn-plugin-fetch.git",
-  "homepage": "https://github.com/devthejo/yarn-plugin-fetch/",
+  "repository": "https://codeberg.org/devthefuture/yarn-plugin-fetch.git",
+  "homepage": "https://codeberg.org/devthefuture/yarn-plugin-fetch/",
   "author": "devthejo",
   "license": "MIT",
   "main": "./sources/index.js",

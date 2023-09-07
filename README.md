@@ -200,3 +200,16 @@ COPY --from=build /app /app
 - [Install without package.json](https://github.com/yarnpkg/yarn/issues/4813)
 - [Fetch dependencies from yarn.lock only](https://github.com/yarnpkg/berry/issues/4529)
 - [A command to just download and cache dependencies from lockfile](https://github.com/yarnpkg/berry/discussions/4380)
+
+
+## Contributing:
+
+We welcome contributions! If you encounter a bug or have a feature suggestion, please open an issue. To contribute code, simply fork the repository and submit a pull request.
+
+This repository is mirrored on both GitHub and Codeberg. Contributions can be made on either platform, as the repositories are synchronized bidirectionally. 
+- Codeberg: [https://codeberg.org/devthefuture/yarn-plugin-fetch](https://codeberg.org/devthefuture/yarn-plugin-fetch)
+- GitHub: [https://github.com/devthefuture-org/yarn-plugin-fetch](https://github.com/devthefuture-org/yarn-plugin-fetch)
+
+For more information:
+- [Why mirror to Codeberg?](https://codeberg.org/Recommendations/Mirror_to_Codeberg#why-should-we-mirror-to-codeberg)
+- [GitHub to Codeberg mirroring tutorial](https://codeberg.org/Recommendations/Mirror_to_Codeberg#github-codeberg-mirroring-tutorial)

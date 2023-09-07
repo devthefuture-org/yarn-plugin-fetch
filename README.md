@@ -34,7 +34,7 @@ It work's by expanding your yarn.lock into package.json file(s) and structured w
 ## getting started
 
 ```sh
-yarn plugin import https://raw.githubusercontent.com/devthejo/yarn-plugin-fetch/master/bundles/@yarnpkg/plugin-fetch.js
+yarn plugin import https://codeberg.org/devthefuture/yarn-plugin-fetch/raw/branch/master/bundles/@yarnpkg/plugin-fetch.js
 ```
 
 ## Docker implementation

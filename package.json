@@ -17,5 +17,8 @@
   "scripts": {
     "build": "builder build plugin"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@3.5.0",
+  "resolutions": {
+    "yarn-lock-to-package-json@^0.2.0": "patch:yarn-lock-to-package-json@npm%3A0.2.0#./.yarn/patches/yarn-lock-to-package-json-npm-0.2.0-693f784191.patch"
+  }
 }

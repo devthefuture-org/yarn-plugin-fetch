@@ -2247,7 +2247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yarn-lock-to-package-json@npm:^0.2.0":
+"yarn-lock-to-package-json@npm:0.2.0":
   version: 0.2.0
   resolution: "yarn-lock-to-package-json@npm:0.2.0"
   dependencies:
@@ -2255,6 +2255,17 @@ __metadata:
   bin:
     yarn-lock-to-package-json: cli.js
   checksum: a65f6c48ca386a9f390f068ff515dcfeac1c13943cf3369fa2f809de7514e291bcc4f101832dd5f85bf752deb7267c696818180da5e05a547af519962f3e7d94
+  languageName: node
+  linkType: hard
+
+"yarn-lock-to-package-json@patch:yarn-lock-to-package-json@npm%3A0.2.0#./.yarn/patches/yarn-lock-to-package-json-npm-0.2.0-693f784191.patch::locator=yarn-plugin-fetch%40workspace%3A.":
+  version: 0.2.0
+  resolution: "yarn-lock-to-package-json@patch:yarn-lock-to-package-json@npm%3A0.2.0#./.yarn/patches/yarn-lock-to-package-json-npm-0.2.0-693f784191.patch::version=0.2.0&hash=db4cba&locator=yarn-plugin-fetch%40workspace%3A."
+  dependencies:
+    "@yarnpkg/parsers": ^3.0.0-rc.32
+  bin:
+    yarn-lock-to-package-json: cli.js
+  checksum: d00c65cd5b7cc2c9a02a5f4c9676d673d6ca9cb0b051501726f540072e2c68e8063b848b32efdc43809b3bd61017f468d28b3b3290da05711490d6d891b18cc9
   languageName: node
   linkType: hard
 

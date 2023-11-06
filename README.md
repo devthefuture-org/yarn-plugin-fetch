@@ -114,7 +114,7 @@ COPY yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
 RUN yarn fetch workspaces focus mypackage
 
-COPY package/mypackage .
+COPY package/mypackage package/mypackage
 
 # COPY package/my-package-dep1 . # if you have one or many workspace dependencies
 RUN yarn workspaces foreach -t run postinstall # if you have postinstall scripts in your package.json file(s)

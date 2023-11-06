@@ -120,7 +120,7 @@ COPY package/mypackage package/mypackage
 RUN yarn workspaces foreach -t run postinstall # if you have postinstall scripts in your package.json file(s)
 RUN yarn workspace mypackage build # and/or other build commands
 
-RUN yarn workspace mypackage focus --production
+RUN yarn workspaces focus mypackage --production
 ```
 
 ## extra commands (fetch-tools)

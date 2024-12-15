@@ -6,16 +6,17 @@
   "license": "MIT",
   "main": "./sources/index.js",
   "dependencies": {
-    "@yarnpkg/builder": "^4.0.0-rc.42",
-    "@yarnpkg/cli": "^4.0.0-rc.42",
-    "@yarnpkg/core": "^4.0.0-rc.42",
-    "@yarnpkg/parsers": "^3.0.0-rc.42",
+    "@yarnpkg/builder": "^4.2.0",
+    "@yarnpkg/cli": "^4.5.3",
+    "@yarnpkg/core": "^4.1.6",
+    "@yarnpkg/parsers": "^3.0.2",
     "clipanion": "^3.2.0-rc.10",
     "shell-quote": "^1.8.1",
+    "yaml": "^2.3.4",
     "yarn-lock-to-package-json": "^0.3.1"
   },
   "scripts": {
     "build": "builder build plugin"
   },
-  "packageManager": "yarn@4.0.0"
+  "packageManager": "yarn@4.5.3"
 }

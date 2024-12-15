@@ -1,0 +1,16 @@
+# Binary files
+*.zip binary
+*.cjs binary
+
+# JavaScript files should use LF
+*.js text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+
+# Yarn specific files
+/.yarn/releases/** binary
+/.yarn/cache/** binary
+/.pnp.cjs binary
+
+# Bundle files
+/bundles/**/*.js binary
